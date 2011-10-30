@@ -45,6 +45,9 @@ $.widget( "ui.spinner", {
 	},
 
 	_create: function() {
+		//this.options.max = this._adjustMinMax( this.options.max );
+		//this.options.min = this._adjustMinMax( this.options.min );
+
 		this._value( this.element.val(), true );
 		this._draw();
 		this._bind( this._events );
@@ -73,6 +76,24 @@ $.widget( "ui.spinner", {
 
 		return options;
 	},
+
+	_adjustMinMax: (function() {
+		var max = Math.pow( 2, 53 ),
+			min = -max;
+
+		return function( value ) {
+			if ( value === null ) {
+				return value;
+			}
+			if ( value === max || value > max ) {
+				return max;
+			}
+			if ( value === min || value < min ) {
+				return min;
+			}
+			return value;
+		};
+	})(),
 
 	_events: {
 		keydown: function( event ) {
