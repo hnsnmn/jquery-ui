@@ -1,11 +1,13 @@
 {
-	"adjoining-classes": false,
-	"box-model": false,
-	"compatible-vendor-prefixes": false,
-	"duplicate-background-images": false,
-	"import": false,
-	"important": false,
-	"outline-none": false,
-	"overqualified-elements": false,
-	"text-indent": false
+	"ignore": [
+		"adjoining-classes",
+		"box-model",
+		"compatible-vendor-prefixes",
+		"duplicate-background-images",
+		"import",
+		"important",
+		"outline-none",
+		"overqualified-elements",
+		"text-indent"
+	]
 }
